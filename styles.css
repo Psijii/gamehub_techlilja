@@ -9,6 +9,7 @@
 @import "imports/grid.css";
 @import "imports/media.css";
 @import "imports/topnav.css";
+@import "imports/products.css";
 
 body {
 	background-image: url(images/gamehubbg.jpg);

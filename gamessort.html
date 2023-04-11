@@ -44,55 +44,11 @@
 	</header>
 	<main class="mywrapper">
   <body>
-    <h1>Product Data:</h1>
-    <label for="category-select">Select Category:</label>
-    <select id="category-select">
-      <option value="">All</option>
-      <option value="rpg">RPG</option>
-      <option value="action">Action</option>
-      <option value="sport">Sport</option>
-      <option value="family">Family</option>
-    </select>
+		<select id="category-select">
+			<option value="">All Categories</option>
+		</select>
     <ul id="product-list"></ul>
-    
-    <script>
-      const apiURL = 'https://canor.techlilja.io/';
-      const consumerKey = 'ck_2176461e904a2133ac4db8120fb54b1ca8015820';
-      const consumerSecret = 'cs_16bfe223bd6dd94e96e0d31aa62834fa0e21948f';
-
-      fetch(apiURL, {
-        headers: {
-          Authorization: 'Basic ' + btoa(consumerKey + ':' + consumerSecret),
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(response => response.json())
-      .then(data => {
-        const productList = document.getElementById('product-list');
-        const categorySelect = document.getElementById('category-select');
-
-        // Filter products by category
-        const filterProducts = category => {
-          productList.innerHTML = '';
-          data.filter(product => category ? product.categories.some(cat => cat.slug === category) : true)
-              .forEach(product => {
-            const li = document.createElement('li');
-            li.textContent = product.name;
-            productList.appendChild(li);
-          });
-        };
-
-        // Sort products based on category selection
-        categorySelect.addEventListener('change', () => {
-          const category = categorySelect.value;
-          filterProducts(category);
-        });
-
-        // Initial display of all products
-        filterProducts(null);
-      })
-      .catch(error => console.error(error));
-    </script>
+		<script src="js/products.js"></script>
 	</main>
 	<footer class="footer">
 		<a href="index.html"><i class="fa-solid fa-house"></i></a>&nbsp;|&nbsp;
