@@ -1,0 +1,38 @@
+@import "imports/body.css";
+@import "imports/buttons.css";
+@import "imports/cart.css";
+@import "imports/cart.css";
+@import "imports/checkout.css";
+@import "imports/footer.css";
+@import "imports/forms.css";
+@import "imports/games.css";
+@import "imports/grid.css";
+@import "imports/media.css";
+@import "imports/topnav.css";
+
+body {
+	background-image: url(images/gamehubbg.jpg);
+	height: 100%;
+	background-size: 85%;
+	background-position: top, center;
+	background-repeat: no-repeat;
+	background-color: var(--blue);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: var(--font-size);
+	overflow-x: hidden;
+	color: var(--white);
+	z-index: 1;
+}
+/*allround wrapper */
+.mywrapper {
+	margin: auto;
+	min-width: 20rem;
+	max-width: 88%;
+	height: auto;
+	align-content: center;
+	align-items: center;
+	margin-top: 90px;
+	margin-bottom: 10px;
+}
+
+

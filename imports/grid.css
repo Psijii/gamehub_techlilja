@@ -1,0 +1,120 @@
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: normal;
+  align-items: normal;
+  align-content: normal;
+	gap: 10px;
+}
+
+.flex-container img {
+	width: 240px;
+}
+
+.flex-items:nth-child(1) {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
+
+.flex-items:nth-child(2) {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
+
+.flex-items:nth-child(3) {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
+
+
+
+/*game info grid alignments */
+.grid_info {
+	display: grid;
+	grid-template-rows: 22.5rem auto;
+	grid-template-columns: auto auto;
+	gap: 0.3125rem;
+	margin: auto;
+	padding: 0.3125rem;
+	grid-template-areas:
+		'gameimg gameinfo'
+		'buy gameinfo';
+}
+
+.grid_info h2 {
+	color: var(--white);
+	text-align: center;
+}
+
+.grid_gameimg img {
+	max-width: 17.5rem;
+}
+
+.grid_gameimg {
+	grid-row-start: 1;
+	grid-column-start: 1;
+	grid-area: gameimg;
+	max-height: 18.75rem;
+	max-width: 18.75rem;
+}
+
+.grid_buy {
+	grid-row-start: 2;
+	grid-column-start: 1;
+	max-height: 12.5rem;
+	max-width: 18.75rem;
+	text-align: center;
+	grid-area: buy;
+}
+
+.grid_gameinfo {
+	grid-row-start: 1;
+	grid-column-start: 2;
+	grid-area: gameinfo;
+}
+
+/* games.html flexboxes*/
+.product_section {
+	display: flex;
+	justify-content: center;
+	margin: auto;
+	flex-wrap: wrap;
+	gap: 0.3125rem;
+	row-gap: 0.625rem;
+	width: 900px;
+}
+
+.product_card {
+	width: min(100%, 11.25rem);
+	margin: 2.5rem;
+}
+
+.product_card img {
+	margin-top: 0.625rem;
+	max-width: 15rem;
+}
+
+.price_input {
+	display: flex;
+	gap: 0.3125rem;
+}
+
+.category {
+	font-size: x-large;
+	padding: 0.3125rem;
+	text-align: center;
+	color: var(--white);
+}

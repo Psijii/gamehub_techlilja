@@ -1,0 +1,119 @@
+.shopwrapper {
+	display: flex;
+	flex-wrap: nowrap;
+	width: 61.875rem;
+	margin: auto;
+	min-width: 20rem;
+	align-content: center;
+	color: var(--white);
+	align-items: center;
+}
+
+.shopwrapper a {
+	color: #46A637;
+}
+
+.shopping-cart {
+	width: 41.875rem;
+	height: 37.5rem;
+	color: var(--pink);
+	background: var(--white);
+	display: flex;
+	flex-direction: column;
+	padding: 0.3125rem;
+}
+
+.title {
+	height: 1.25rem;
+	padding: 1.25rem 1.875rem;
+	color: var(--blue);
+}
+
+.item {
+	padding: 1.25rem 1.25rem;
+	height: 7.5rem;
+	display: flex;
+}
+
+.item:nth-child(3) {
+	border-top: 0px;
+	border-bottom: 0px;
+}
+
+.productimage img {
+	margin-right: 3.125rem;
+	max-width: 8.75rem;
+	max-height: 8.75rem;
+}
+
+.description {
+	padding-top: 0.625rem;
+	margin-right: 3.75rem;
+	width: 12.5rem;
+}
+
+.description p {
+	display: block;
+	font-size: 1rem;
+	color: black;
+}
+
+.description p:first-child {
+	margin-bottom: 0.3125rem;
+}
+
+.description p:last-child {
+	margin-top: 0.5rem;
+	color: var(--blue);
+}
+
+.description h2 {
+	color: var(--blue);
+	min-width: 9.375rem;
+}
+
+.quantity {
+	padding-top: 1.25rem;
+	margin-right: 4.0625rem;
+	width: 15.625rem;
+}
+
+.quantity input {
+	border: none;
+	text-align: center;
+	width: 2rem;
+}
+
+.total-price {
+	width: 5.1875rem;
+	padding-top: 1.6875rem;
+	text-align: center;
+	font-size: 1.25rem;
+	color: black;
+}
+
+.subtotal {
+	width: 15.625rem;
+	height: 37.5rem;
+	background: #cecece;
+	display: flex;
+	flex-direction: column;
+	color: var(--blue);
+	text-indent: 0.9375rem;
+	padding: 0.3125rem;
+}
+
+.shipping {
+	width: 100%;
+	height: 5rem;
+	background-color: #b1b1b1;
+	text-indent: 0.3125rem;
+}
+
+.subtotal,
+.shipping,
+.totalcost,
+h2 h3 h4 span {
+	color: var(--blue);
+	text-align: center;
+}

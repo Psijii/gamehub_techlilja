@@ -1,0 +1,135 @@
+/*ALL the buttons styles */
+.allbuttons,
+.price_btn_bg,
+.cartbtns {
+	text-align: center;
+	font-size: large;
+	display: inline-block;
+	font-family: Arial, Helvetica, sans-serif;
+	font-family: Jetbrains Mono;
+	margin: 0.625rem;
+	padding: 0.3125rem;
+	border-radius: 5px;
+	border: none;
+}
+
+.allbuttons {
+	background-color: var(--white);
+	color: var(--pink);
+	min-width: 155px;
+}
+
+.price_btn_bg {
+	background-color: var(--white);
+}
+
+.cartbtns {
+	background-color: var(--white);
+	color: var(--pink);
+}
+
+.price-btn {
+	background-color: var(--green);
+	color: var(--white);
+	margin: 0px;
+	border: 1px solid var(--green);
+}
+
+.price-btn:hover {
+	background-color: var(--white);
+	color: var(--green);
+	margin: 0px;
+}
+
+.product-btn {
+	background-color: var(--pink);
+	color: var(--white);
+	margin: 0px;
+	border-style: 1px solid var(--pink);
+}
+
+.product-btn:hover {
+	background-color: var(--white);
+	color: var(--pink);
+	margin: 0px;
+	border-style: 1px solid var(--white);
+}
+
+#releasebtn {
+	background-color: var(--pink);
+	color: var(--white);
+}
+
+#releasebtn:hover {
+	background-color: var(--white);
+	color: var(--green);
+}
+
+#submitbtn {
+	background-color: var(--pink);
+	color: var(--white);
+}
+
+#submitbtn:hover {
+	background-color: var(--green);
+	color: var(--white);
+}
+
+#btn-used {
+	color: var(--blue);
+	background-color: var(--white);
+}
+
+#btn-used:hover {
+	background-color: var(--white);
+	color: var(--pink);
+}
+
+#btn-cart {
+	background-color: var(--pink);
+	color: var(--white);
+	margin: 0px;
+}
+
+#btn-cart:hover {
+	background-color: var(--white);
+	color: var(--pink);
+	margin: 0px;
+}
+
+#cancel-btn {
+	width: auto;
+	color: var(--blue);
+	border: 1px solid lightgrey;
+	margin: 0px;
+}
+
+#cancel-btn:hover {
+	color: red;
+	border: 1px solid red;
+	margin: 0px;
+}
+
+#login-btn {
+	background-color: var(--pink);
+	color: var(--white);
+}
+
+#login-btn:hover {
+	background-color: var(--blue);
+	color: var(--white);
+}
+
+#minus-btn {
+	margin-bottom: 0.1875rem;
+	width: 1.875rem;
+	height: 1.875rem;
+	background-color: var(--white);
+}
+
+#plus-btn {
+	margin-top: 0.125rem;
+	width: 1.875rem;
+	height: 1.875rem;
+	background-color: var(--white);
+}

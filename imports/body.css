@@ -1,0 +1,77 @@
+/* root styles*/
+:root {
+	--blue: #0F1359;
+	--pink: #772667;
+	--white: #F2F2F2;
+	--green: #2d7a17;
+	--font-size: 1em;
+	--brightpink: #E21CE0;
+}
+/*select text*/
+::selection {
+	color: vaR(--brightpink);
+	background: var(--white);
+}
+a:hover {
+	color: var(--brightpink);
+
+}
+/*bg styles etc */
+img {
+	box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+fieldset {
+	border-radius: 5px;
+}
+
+legend {
+	color: var(--blue);
+}
+
+label {
+	color: var(--blue);
+}
+
+h1, h2 {
+	font-family: JetBrains Mono;
+}
+
+#about_p {
+	color: rgb(110, 110, 110);
+	font-size: 12px;
+}
+
+a,
+li,
+i,
+p,
+h1 {
+	list-style: none;
+	text-decoration: none;
+	color: var(--white)
+}
+
+img,
+input {
+	border-radius: 0.3125rem;
+}
+
+i:hover {
+	color: var(--brightpink);
+}
+
+.subtotal,
+.shopping-cart,
+.checkout,
+.contactctn,
+.shipping,
+.container,
+.footer,
+.allbuttons,
+.footerlogo {
+	border-radius: 0.3125rem;
+}
+
+
+
