@@ -52,6 +52,49 @@ function getProducts() {
     .catch(error => console.error(error));
 }
 
+function showProductDetails(product) {
+  const modal = document.createElement('div');
+  modal.id = 'product-details-modal';
+  modal.classList.add('modal');
+
+  const modalContent = document.createElement('div');
+  modalContent.classList.add('modal-content');
+
+  const closeBtn = document.createElement('span');
+  closeBtn.classList.add('close');
+  closeBtn.textContent = '[Close]';
+  closeBtn.onclick = () => {
+    modal.style.display = 'none';
+  };
+  modalContent.appendChild(closeBtn);
+
+  const title = document.createElement('h2');
+  title.textContent = product.name;
+  modalContent.appendChild(title);
+
+  const img = document.createElement('img');
+  img.src = product.images[0].src;
+  img.alt = product.name;
+  img.width = 200;
+  modalContent.appendChild(img);
+
+  const description = document.createElement('p');
+  description.innerHTML = product.description;
+  modalContent.appendChild(description);
+
+  modal.appendChild(modalContent);
+  document.body.appendChild(modal);
+
+  modal.style.display = 'block';
+
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  };
+}
+
+
 function displayProducts(products) {
   products.forEach(product => {
     const li = document.createElement('li');
@@ -63,6 +106,11 @@ function displayProducts(products) {
     img.alt = product.name;
     img.width = 200;
     img.height = 200;
+
+    img.addEventListener('click', () => {
+      showProductDetails(product);
+    });
+
     productDiv.appendChild(img);
 
     const name = document.createElement('h2');
@@ -92,6 +140,7 @@ function displayProducts(products) {
     productList.appendChild(li);
   });
 }
+
 
 categorySelect.addEventListener('change', getProducts);
 
