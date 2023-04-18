@@ -14,7 +14,7 @@
 }
 a:hover {
 	color: var(--brightpink);
-
+	transition: 2s ease-out 0.1ms;
 }
 /*bg styles etc */
 img {
