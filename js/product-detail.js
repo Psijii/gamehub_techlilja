@@ -1,44 +1,37 @@
-let productId = new URLSearchParams(window.location.search).get("id");
+const consumerKey = 'ck_5a5ea7532030354dc8d5037202c5800d2de0c04d';
+const consumerSecret = 'cs_380586f080fd44dfcc3fbf6590d81f95f56fd7d6';
 
-		// Call your API to get the product data with the given id
-		fetch(`https://canor.techlilja.io/wp-json/wc/v3/products/${productId}?consumer_key=ck_2176461e904a2133ac4db8120fb54b1ca8015820&consumer_secret=cs_16bfe223bd6dd94e96e0d31aa62834fa0e21948f`)
-			.then(response => response.json())
-			.then(product => {
-				// Add the product data to the table
-				let table = document.createElement("table");
+const apiURL = 'https://www.stress.techlilja.io/wp-json/wc/v3';
 
-				// Add the product image
-				let imageRow = document.createElement("tr");
-				let imageCell = document.createElement("td");
-				let image = document.createElement("img");
-				image.src = product.images[0].src;
-				image.alt = product.images[0].alt;
-				imageCell.appendChild(image);
-				imageRow.appendChild(imageCell);
-				table.appendChild(imageRow);
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get('id');
+fetch(apiURL + '/products/' + productId, {
+	headers: {
+		Authorization: 'Basic ' + btoa(consumerKey + ':' + consumerSecret),
+		'Content-Type': 'application/json'
+	}
+})
+	.then(response => response.json())
+	.then(product => {
+		const productImage = document.getElementById('product-image');
+		productImage.innerHTML = `<img src="${product.images[0].src}" alt="${product.name}">`;
 
-				// Add the product name
-				let nameRow = document.createElement("tr");
-				let nameCell = document.createElement("td");
-				nameCell.textContent = product.name;
-				nameRow.appendChild(nameCell);
-				table.appendChild(nameRow);
+		const productName = document.getElementById('product-name');
+		productName.innerHTML = product.name;
 
-				// Add the product price
-				let priceRow = document.createElement("tr");
-				let priceCell = document.createElement("td");
-				priceCell.textContent = "Price: $" + product.price;
-				priceRow.appendChild(priceCell);
-				table.appendChild(priceRow);
+		const productPrice = document.getElementById('product-price');
+		if (product.on_sale) {
+			productPrice.innerHTML = `<del>€${product.regular_price}</del> €${product.sale_price}`;
+		} else {
+			productPrice.innerHTML = `€${product.price}`;
+		}
+		const productGallery = document.getElementById('product-gallery');
+		product.gallery_images.forEach(image => {
+			const img = document.createElement('img');
+			img.src = image.src;
+			img.alt = image.name;
+			productGallery.appendChild(img);
+		});
 
-				// Add the product description
-				let descriptionRow = document.createElement("tr");
-				let descriptionCell = document.createElement("td");
-				descriptionCell.innerHTML = product.description;
-				descriptionRow.appendChild(descriptionCell);
-				table.appendChild(descriptionRow);
-
-				// Add the table to the product element
-				document.getElementById("product").appendChild(table);
-			})
-			.catch(error => console.log(error));
+		const productDescription = document.getElementById('product-description');
+		productDescription.innerHTML = product.description;})

@@ -33,10 +33,10 @@ label {
 	color: var(--blue);
 }
 
-h1, h2 {
+h1, h2, h3 {
 	font-family: JetBrains Mono;
-}
 
+}
 #about_p {
 	color: rgb(110, 110, 110);
 	font-size: 12px;
@@ -74,4 +74,55 @@ i:hover {
 }
 
 
+#featured-products {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+}
 
+.featured-product h3 {
+  color: var(--white);
+}
+
+.featured-product {
+  flex: 0 0 auto;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.featured-product:last-child {
+  margin-right: 0;
+}
+
+.featured-product img {
+  width: 200px;
+  height: auto;
+}
+
+@media screen and (max-width: 64.0625rem) {
+  #featured-products {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .featured-product {
+    flex-basis: calc(50% - 10px);
+    margin-bottom: 20px;
+    margin-right: 10px;
+    flex-direction: row;
+  }
+
+  .featured-product:last-child {
+    margin-right: 0;
+  }
+
+  .featured-product img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+  }
+}

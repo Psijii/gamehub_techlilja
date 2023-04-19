@@ -1,7 +1,7 @@
-const consumerKey = 'ck_2176461e904a2133ac4db8120fb54b1ca8015820';
-const consumerSecret = 'cs_16bfe223bd6dd94e96e0d31aa62834fa0e21948f';
+const consumerKey = 'ck_5a5ea7532030354dc8d5037202c5800d2de0c04d';
+const consumerSecret = 'cs_380586f080fd44dfcc3fbf6590d81f95f56fd7d6';
 
-const apiURL = 'https://canor.techlilja.io/wp-json/wc/v3';
+const apiURL = 'https://www.stress.techlilja.io/wp-json/wc/v3';
 
 const productList = document.getElementById('product-list');
 const categorySelect = document.getElementById('category-select');
@@ -52,70 +52,24 @@ function getProducts() {
     .catch(error => console.error(error));
 }
 
-function showProductDetails(product) {
-  const modal = document.createElement('div');
-  modal.id = 'product-details-modal';
-  modal.classList.add('modal');
-
-  const modalContent = document.createElement('div');
-  modalContent.classList.add('modal-content');
-
-  const closeBtn = document.createElement('span');
-  closeBtn.classList.add('close');
-  closeBtn.textContent = '[Close]';
-  closeBtn.onclick = () => {
-    modal.style.display = 'none';
-  };
-  modalContent.appendChild(closeBtn);
-
-  const title = document.createElement('h2');
-  title.textContent = product.name;
-  modalContent.appendChild(title);
-
-  const img = document.createElement('img');
-  img.src = product.images[0].src;
-  img.alt = product.name;
-  img.width = 200;
-  modalContent.appendChild(img);
-
-  const description = document.createElement('p');
-  description.innerHTML = product.description;
-  modalContent.appendChild(description);
-
-  modal.appendChild(modalContent);
-  document.body.appendChild(modal);
-
-  modal.style.display = 'block';
-
-  window.onclick = function (event) {
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
-  };
-}
-
-
 function displayProducts(products) {
   products.forEach(product => {
     const li = document.createElement('li');
     const productDiv = document.createElement('div');
     productDiv.classList.add('product');
 
+    const productLink = document.createElement('a');
+    productLink.href = `product-detail.html?id=${product.id}`;
+
     const img = document.createElement('img');
     img.src = product.images[0].src;
     img.alt = product.name;
     img.width = 200;
-    img.height = 200;
-
-    img.addEventListener('click', () => {
-      showProductDetails(product);
-    });
-
-    productDiv.appendChild(img);
+    productLink.appendChild(img);
 
     const name = document.createElement('h2');
     name.textContent = product.name;
-    productDiv.appendChild(name);
+    productLink.appendChild(name);
 
     const price = document.createElement('span');
     price.classList.add('price');
@@ -127,15 +81,17 @@ function displayProducts(products) {
     } else {
       price.textContent = '€' + product.price;
     }
-    productDiv.appendChild(price);
+    productLink.appendChild(price);
 
     const button = document.createElement('button');
-    button.textContent = 'Add to Cart';
+    button.textContent = 'Add to cart';
+    button.classList.add('cartbtns');
     button.addEventListener('click', () => {
       addToCart(product.id);
     });
-    productDiv.appendChild(button);
+    productLink.appendChild(button);
 
+    productDiv.appendChild(productLink);
     li.appendChild(productDiv);
     productList.appendChild(li);
   });
@@ -144,45 +100,10 @@ function displayProducts(products) {
 
 categorySelect.addEventListener('change', getProducts);
 
-
 getProducts();
 
 function addToCart(productId) {
-  let cart = localStorage.getItem('cart');
+  const cartURL = 'https://gamehub.techlilja.io/cart.html';
+  window.open(cartURL, '_blank');
 
-  if (cart) {
-    cart = JSON.parse(cart);
-  } else {
-    cart = [];
-  }
-
-  const existingProduct = cart.find(item => item.id === productId);
-
-  if (existingProduct) {
-    existingProduct.quantity += 1;
-  } else {
-    cart.push({ id: productId, quantity: 1 });
-  }
-
-  localStorage.setItem('cart', JSON.stringify(cart));
-  showConfirmationModal();
 }
-
-function showConfirmationModal() {
-  const modal = document.getElementById('confirmation-modal');
-  modal.style.display = 'block';
-
-  const closeModalButton = document.getElementById('close-modal');
-  closeModalButton.onclick = function () {
-    modal.style.display = 'none';
-  };
-
-  window.onclick = function (event) {
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
-  };
-}
-
-
-

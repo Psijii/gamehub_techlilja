@@ -10,7 +10,7 @@
 @import "imports/media.css";
 @import "imports/topnav.css";
 @import "imports/products.css";
-@import "imports/product-confir.css";
+@import "imports/product-detail.css";
 
 body {
 	background-image: url(images/gamehubbg.jpg);

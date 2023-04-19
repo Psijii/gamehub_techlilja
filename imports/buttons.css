@@ -27,7 +27,10 @@
 	background-color: var(--white);
 	color: var(--pink);
 }
-
+.cartbtns:hover {
+	background-color: var(--pink);
+	color: var(--white);
+}
 .price-btn {
 	background-color: var(--green);
 	color: var(--white);
