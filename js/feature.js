@@ -21,7 +21,7 @@ fetch(`${apiURL}/products?featured=true&currency=EUR`, {
     const html = `
       <div class="featured-product"><a href="product.html">
         <img src="${imgSrc}" alt="${product.name}" width="${imgWidth}">
-        // <h3>${product.name}</h3></a>
+        <h3>${product.name}</h3></a>
       </div>
     `;
     container.insertAdjacentHTML('beforeend', html);
